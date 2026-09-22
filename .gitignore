@@ -1,0 +1,18 @@
+# Python environment and generated files
+.venv/
+__pycache__/
+*.py[cod]
+
+# Frontend dependencies and build output
+frontend/node_modules/
+frontend/dist/
+
+# IDE and local settings
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Temporary files
+*.log
+.DS_Store

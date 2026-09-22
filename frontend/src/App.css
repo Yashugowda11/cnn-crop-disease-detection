@@ -1,0 +1,126 @@
+.app-shell {
+  min-height: 100vh;
+  background: #f6f8f5;
+  color: #20352a;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 24px 36px;
+  border-bottom: 1px solid #e2e9e2;
+}
+
+.brand-mark {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 13px;
+  background: #236b3b;
+  color: #fff;
+  font-size: 21px;
+  box-shadow: 0 8px 18px #236b3b2b;
+}
+
+.topbar h1 { margin: 0; color: #183322; font-size: 22px; font-weight: 800; letter-spacing: -.6px; }
+.eyebrow, .label { color: #397b4c; font-size: 10px; font-weight: 800; letter-spacing: 1.7px; }
+.eyebrow { margin: 0 0 5px; }
+.status-pill { display: flex; align-items: center; gap: 8px; margin-left: auto; padding: 9px 13px; border: 1px solid #d1e5d5; border-radius: 99px; background: #fbfefb; color: #51805d; font-size: 12px; font-weight: 700; }
+.status-pill span { width: 7px; height: 7px; border-radius: 50%; background: #51b36b; box-shadow: 0 0 0 4px #51b36b1c; }
+
+.content { max-width: 1240px; margin: 0 auto; padding: 70px 36px 46px; }
+.intro { max-width: 730px; margin-bottom: 42px; }
+.intro h2 { max-width: 650px; margin: 9px 0 15px; color: #183322; font-size: clamp(36px, 5vw, 58px); line-height: 1.02; letter-spacing: -2.9px; }
+.intro > p:last-child { max-width: 580px; margin: 0; color: #718178; font-size: 16px; line-height: 1.7; }
+
+.workspace { display: grid; grid-template-columns: minmax(330px, .88fr) minmax(450px, 1.12fr); gap: 24px; align-items: start; }
+.panel { min-width: 0; padding: 26px; border: 1px solid #e0e9e1; border-radius: 20px; background: #fff; box-shadow: 0 14px 38px #274c3210; }
+.panel-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 21px; }
+.panel-heading > div { display: flex; align-items: center; gap: 12px; }
+.panel-heading h3 { margin: 0; color: #274131; font-size: 18px; font-weight: 800; letter-spacing: -.4px; }
+.step-number { color: #70a17b; font-family: var(--mono); font-size: 11px; font-weight: 800; }
+.file-type, .result-dot { color: #8b9a90; font-size: 10px; font-weight: 800; letter-spacing: 1px; }
+.result-dot { color: #428553; }
+
+.drop-zone { display: grid; min-height: 360px; place-items: center; overflow: hidden; border: 1.5px dashed #bdd5c2; border-radius: 15px; background: #fbfdfb; cursor: pointer; transition: border-color .2s ease, background .2s ease, transform .2s ease; }
+.drop-zone:hover { border-color: #397b4c; background: #f3faf4; transform: translateY(-2px); }
+.drop-zone input { display: none; }
+.upload-placeholder { display: grid; gap: 9px; color: #849289; font-size: 13px; text-align: center; }
+.upload-placeholder strong { color: #294233; font-size: 15px; }
+.upload-icon { display: grid; width: 54px; height: 54px; place-items: center; margin: 0 auto 5px; border-radius: 16px; background: #e8f4e9; color: #397b4c; font-size: 27px; font-weight: 500; }
+.preview { width: 100%; height: 100%; min-height: 360px; object-fit: cover; }
+.file-name { margin: 14px 0 0; overflow: hidden; color: #304a38; font-size: 13px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+.upload-tip { margin: 15px 0 0; color: #89958d; font-size: 12px; line-height: 1.6; }
+
+.results-panel { min-height: 480px; }
+.empty-state, .loading-state { display: grid; min-height: 360px; place-content: center; justify-items: center; gap: 10px; color: #87958b; text-align: center; }
+.empty-state > span { color: #9ac3a2; font-size: 58px; line-height: 1; }
+.empty-state strong, .loading-state strong { color: #2b4433; font-size: 15px; }
+.empty-state p, .loading-state span:last-child { margin: 0; font-size: 13px; }
+.spinner { width: 32px; height: 32px; border: 3px solid #dcebdd; border-top-color: #397b4c; border-radius: 50%; animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.diagnosis-card { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 20px; border: 1px solid #dcecdf; border-radius: 14px; background: linear-gradient(135deg, #f1f9f2, #f9fcf9); }
+.diagnosis-card h4 { margin: 8px 0 0; color: #21462d; font-size: 25px; font-weight: 800; letter-spacing: -.8px; text-transform: capitalize; }
+.severity { padding: 6px 11px; border-radius: 99px; font-size: 11px; font-weight: 800; text-transform: capitalize; }
+.severity.mild { background: #e2f4e5; color: #337c45; }
+.severity.moderate { background: #fff2d9; color: #a36a15; }
+.severity.severe { background: #fde5e1; color: #b04b40; }
+
+.confidence-block { padding: 25px 2px 21px; border-bottom: 1px solid #e6ede7; }
+.metric-heading { display: flex; align-items: baseline; justify-content: space-between; color: #52665a; font-size: 13px; font-weight: 700; }
+.metric-heading strong { color: #2e7941; font-size: 23px; letter-spacing: -.5px; }
+.progress-track { height: 10px; margin: 12px 0 9px; overflow: hidden; border-radius: 99px; background: #e7eee8; }
+.progress-value { height: 100%; border-radius: inherit; background: linear-gradient(90deg, #71b27b, #2d793f); box-shadow: 0 2px 7px #387f493d; transition: width .5s ease; }
+.confidence-block p { margin: 0; color: #89958d; font-size: 11px; }
+.probability-list { margin-top: 19px; }
+.probability-list > .label { display: block; margin-bottom: 8px; }
+.probability-row { display: flex; justify-content: space-between; gap: 12px; padding: 6px 0; border-bottom: 1px solid #eef3ee; color: #718077; font-size: 11px; }
+.probability-row strong { color: #304a38; }
+
+.guidance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+.guidance-card { display: flex; gap: 11px; padding: 15px; border: 1px solid #e2eae3; border-radius: 12px; background: #fff; }
+.guidance-card p { margin: 8px 0 0; color: #5d6c62; font-size: 12px; line-height: 1.55; }
+.guidance-icon { display: grid; flex: 0 0 28px; height: 28px; place-items: center; border-radius: 9px; font-weight: 800; }
+.guidance-icon.green { background: #e2f3e5; color: #347e47; }
+.guidance-icon.amber { background: #fff2d8; color: #aa761d; }
+.distribution-card { margin-top: 22px; padding: 18px; border: 1px solid #e2eae3; border-radius: 14px; background: #fbfdfb; }
+.distribution-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+.distribution-heading h5 { margin: 6px 0 0; color: #2b4433; font-size: 15px; }
+.chart-badge { padding: 5px 8px; border-radius: 6px; background: #e8f3e9; color: #4d8259; font-size: 10px; font-weight: 800; }
+.distribution-chart { display: grid; gap: 11px; }
+.distribution-row { opacity: .76; }
+.distribution-row.selected { opacity: 1; }
+.distribution-label { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 5px; color: #65756a; font-size: 11px; }
+.distribution-row.selected .distribution-label { color: #236b3b; font-weight: 800; }
+.distribution-label strong { color: #52665a; font-size: 10px; }
+.distribution-track { height: 7px; overflow: hidden; border-radius: 99px; background: #e7eee8; }
+.distribution-value { height: 100%; border-radius: inherit; background: #a9cbb0; transition: width .5s ease; }
+.distribution-row.selected .distribution-value { background: linear-gradient(90deg, #4c9a5d, #236b3b); }
+.chart-note { margin: 15px 0 0; color: #8a968e; font-size: 10px; line-height: 1.5; }
+.disclaimer { margin: 18px 0 0; color: #8a968e; font-size: 10px; line-height: 1.55; }
+.error-box { margin-top: 55px; padding: 18px; border: 1px solid #f2d8d3; border-radius: 12px; background: #fff5f3; color: #a44c42; }
+.error-box p { margin: 7px 0; font-size: 13px; line-height: 1.5; }
+.error-box small { font-size: 11px; }
+footer { max-width: 1240px; margin: 0 auto; padding: 20px 36px 32px; color: #8a968e; font-size: 11px; }
+
+@media (max-width: 820px) {
+  .topbar, .content, footer { padding-right: 20px; padding-left: 20px; }
+  .content { padding-top: 45px; }
+  .workspace { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .topbar { padding-top: 18px; padding-bottom: 18px; }
+  .status-pill { padding: 9px; font-size: 0; }
+  .status-pill span { margin: 0; }
+  .panel { padding: 18px; border-radius: 16px; }
+  .drop-zone, .preview { min-height: 270px; }
+  .guidance-grid { grid-template-columns: 1fr; }
+  .intro h2 { letter-spacing: -1.7px; }
+  .diagnosis-card h4 { font-size: 21px; }
+}

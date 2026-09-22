@@ -1,0 +1,75 @@
+import { useState } from "react";
+import "./index.css";
+
+export default function App() {
+  const [image, setImage] = useState(null);
+  const [result, setResult] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  async function uploadImage(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    setImage(URL.createObjectURL(file));
+    setLoading(true);
+    setResult(null);
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const response = await fetch("http://localhost:5000/predict", {
+        method: "POST",
+        body: formData,
+      });
+
+      setResult(await response.json());
+    } catch {
+      setResult({ error: "Backend connection failed." });
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <div className="app">
+      <header>
+        <h1>CNN Crop Disease Detection</h1>
+        <p>Upload a crop leaf image for disease analysis</p>
+      </header>
+
+      <main>
+        <section className="card">
+          <h2>Upload Leaf Image</h2>
+          <input type="file" accept="image/*" onChange={uploadImage} />
+
+          {image && <img src={image} alt="Uploaded leaf" />}
+        </section>
+
+        <section className="card">
+          <h2>Detection Result</h2>
+
+          {loading && <p>Analyzing image...</p>}
+
+          {!loading && !result && (
+            <p className="muted">Upload an image to begin.</p>
+          )}
+
+          {result?.error && <p className="error">{result.error}</p>}
+
+          {result && !result.error && (
+            <div className="result">
+              <p><b>Disease:</b> {result.predicted_class}</p>
+              <p>
+                <b>Confidence:</b>{" "}
+                {(result.confidence * 100).toFixed(1)}%
+              </p>
+              <p><b>Severity:</b> {result.severity}</p>
+              <p><b>Recommendation:</b> {result.recommendation}</p>
+            </div>
+          )}
+        </section>
+      </main>
+    </div>
+  );
+}
