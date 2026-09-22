@@ -3,3 +3,4 @@ dataset/**/*.png filter=lfs diff=lfs merge=lfs -text
 backend/model/*.pth filter=lfs diff=lfs merge=lfs -text
 dataset/**/*.jpg filter=lfs diff=lfs merge=lfs -text
 dataset/**/*.JPG filter=lfs diff=lfs merge=lfs -text
+dataset filter=lfs diff=lfs merge=lfs -text
